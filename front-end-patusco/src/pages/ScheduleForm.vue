@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { AutoForm } from '../components/ui/auto-form'
 import { Button } from '../components/ui/button'
-import { toast } from '../components/ui/toast'
-import { h } from 'vue'
 import * as z from 'zod'
+import ScheduleFormController from './ScheduleFormController'
 
 const schema = z.object({
     yourName: z
@@ -49,13 +48,8 @@ const schema = z.object({
         .enum(['Morning', 'Afternoon']),
 })
 
-function onSubmit(values: Record<string, any>) {
-    console.log(values);
-    toast({
-        title: 'You submitted the following values:',
-        description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-    })
-}
+const controller = new ScheduleFormController();
+
 </script>
 
 <template>
@@ -72,7 +66,7 @@ function onSubmit(values: Record<string, any>) {
                 component: 'radio',
             },
         
-        }" @submit="onSubmit">
+        }" @submit="controller.onSubmit">
             <Button type="submit">
                 Submit
             </Button>
