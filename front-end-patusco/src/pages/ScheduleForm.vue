@@ -59,8 +59,8 @@ function onSubmit(values: Record<string, any>) {
 </script>
 
 <template>
-    <div>
-        <h1>Schedule Form</h1>
+    <div class="w-full flex flex-col justify-center items-center my-20">
+        <h1 class="text-4xl font-bold text-center mb-6">Schedule Form</h1>
 
         <AutoForm class="w-2/3 space-y-6" :schema="schema" :field-config="{
         
