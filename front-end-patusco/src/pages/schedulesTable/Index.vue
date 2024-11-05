@@ -29,14 +29,16 @@ function onSubmit(filter: FilterModel) {
 </script>
 
 <template>
-    <div>
-        <h1>Filter</h1>
-        <Filter @submit="onSubmit"></Filter>
-    </div>
+    <div class="my-10">
+        <h1 class="text-4xl font-bold text-center mb-6">Management</h1>
+    
+        <div>
+            <Filter @submit="onSubmit"></Filter>
+        </div>
 
-    <div>
-        <h1>Schedules Table</h1>
-        <ScheduleTable :schedules="schedules"></ScheduleTable>
+        <div>
+            <ScheduleTable :schedules="schedules"></ScheduleTable>
+        </div>
     </div>
 </template>
 
