@@ -28,12 +28,16 @@ function fetchDoctors() {
 
 const emit = defineEmits(['select'])
 
+const props = defineProps<{
+  selectedDoctor: DoctorModel;
+}>();
+
 </script>
 
 <template>
   <Select>
     <SelectTrigger>
-      <SelectValue placeholder="Select" />
+      <SelectValue :placeholder="props.selectedDoctor ? props.selectedDoctor.name : 'Select'" />
     </SelectTrigger>
     <SelectContent>
       <SelectGroup>

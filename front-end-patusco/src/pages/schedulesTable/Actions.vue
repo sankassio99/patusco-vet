@@ -4,7 +4,11 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 from '@components/ui/dropdown-menu'
 import { MoreHorizontal } from 'lucide-vue-next'
 import AssignDoctorModal from './AssignDoctorModal.vue';
+import { Schedule } from './models/scheduleModel';
 
+const props = defineProps<{
+    schedule: Schedule;
+}>();
 
 </script>
 
@@ -32,7 +36,7 @@ import AssignDoctorModal from './AssignDoctorModal.vue';
 
             <DropdownMenuSeparator />
 
-            <AssignDoctorModal />
+            <AssignDoctorModal :doctor="schedule.assign" />
 
         </DropdownMenuContent>
     </DropdownMenu>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
-import ScheduleTable, { Schedule } from './ScheduleTable.vue';
+import ScheduleTable from './ScheduleTable.vue';
 import Filter from './Filter.vue';
 import ScheduleService from './services/schedulesService';
 import FilterModel from './models/filterModel';

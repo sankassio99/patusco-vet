@@ -16,6 +16,7 @@ import {
 import SelectDoctor from './SelectDoctor.vue';
 import DoctorService from './services/doctorsService';
 import { useForm } from 'vee-validate';
+import DoctorModel from './models/doctorModel';
 
 const service = new DoctorService();
 
@@ -25,6 +26,9 @@ const onSubmit = form.handleSubmit((values) => {
   service.assignDoctor(values.doctor);
 })
 
+const props = defineProps<{
+  doctor: DoctorModel;
+}>();
 
 </script>
 
@@ -48,7 +52,7 @@ const onSubmit = form.handleSubmit((values) => {
           <FormItem>
             
             <FormControl>
-              <SelectDoctor v-bind="componentField" />
+              <SelectDoctor :selected-doctor="doctor" v-bind="componentField" />
             </FormControl>
 
           </FormItem>

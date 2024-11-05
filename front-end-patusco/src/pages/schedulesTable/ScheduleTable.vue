@@ -9,15 +9,7 @@ import {
   TableRow,
 } from '@components/ui/table'
 import Actions from './Actions.vue';
-
-export interface Schedule {
-  code: string;
-  requesterName: string;
-  animalName: string;
-  type: string;
-  date: string;
-  shift: string;
-}
+import { Schedule } from './models/scheduleModel';
 
 const props = defineProps<{
   schedules: Schedule[];
@@ -38,6 +30,7 @@ const props = defineProps<{
         <TableHead>Type</TableHead>
         <TableHead>Date</TableHead>
         <TableHead>Shift</TableHead>
+        <TableHead>Assign</TableHead>
         <TableHead class="text-right">
           Actions
         </TableHead>
@@ -53,8 +46,9 @@ const props = defineProps<{
         <TableCell>{{ schedule.type }}</TableCell>
         <TableCell>{{ schedule.date }}</TableCell>
         <TableCell>{{ schedule.shift }}</TableCell>
+        <TableCell>{{ schedule.assign.name }}</TableCell>
         <TableCell class="text-right">
-          <Actions />
+          <Actions :schedule="schedule"/>
         </TableCell>
       </TableRow>
     </TableBody>

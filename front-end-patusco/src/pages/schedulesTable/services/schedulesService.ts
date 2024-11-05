@@ -1,10 +1,10 @@
+import DoctorModel from "../models/doctorModel";
 import FilterModel from "../models/filterModel";
-import { Schedule } from "../ScheduleTable.vue";
+import { Schedule } from "../models/scheduleModel";
 
 export default class ScheduleService {
     async getSchedules(filter: FilterModel) : Promise<Schedule[]> {
-        console.log('Getting schedules');
-        console.log(filter);
+        
 
         return [
             <Schedule>{
@@ -14,6 +14,7 @@ export default class ScheduleService {
                 type: 'Vaccination',
                 date: '2022-01-01',
                 shift: 'Morning',
+                assign: new DoctorModel('1', 'Dr. Pedro Duarte')
             }
         ];
     }
