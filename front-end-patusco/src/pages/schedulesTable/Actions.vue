@@ -3,6 +3,7 @@ import { Button } from '@components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } 
 from '@components/ui/dropdown-menu'
 import { MoreHorizontal } from 'lucide-vue-next'
+import AssignDoctorModal from './AssignDoctorModal.vue';
 
 
 </script>
@@ -31,7 +32,7 @@ import { MoreHorizontal } from 'lucide-vue-next'
 
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem>Assign Doctor</DropdownMenuItem>
+            <AssignDoctorModal />
 
         </DropdownMenuContent>
     </DropdownMenu>
