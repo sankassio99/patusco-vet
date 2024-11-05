@@ -28,10 +28,6 @@ function fetchDoctors() {
 
 const emit = defineEmits(['select'])
 
-function onSelect(data: DoctorModel) {
-    emit('select', data)
-}
-
 </script>
 
 <template>
@@ -41,15 +37,11 @@ function onSelect(data: DoctorModel) {
     </SelectTrigger>
     <SelectContent>
       <SelectGroup>
-        <div class="relative flex w-full cursor-default 
-            select-none items-center rounded-sm py-1.5 
-            pl-8 pr-2 text-sm outline-none focus:bg-accent 
-            focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50'" 
-            v-for="doctor in doctorsList" 
-            :key="doctor.id"
-            @click="onSelect(doctor)">
+        <SelectItem v-for="doctor in doctorsList" 
+            :value="doctor.id"
+            :key="doctor.id">
             {{ doctor.name }}
-        </div>
+        </SelectItem>
       </SelectGroup>
     </SelectContent>
   </Select>

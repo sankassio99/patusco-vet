@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Button } from '@components/ui/button'
 import {
+  FormField,
+  FormItem,
+  FormControl
+} from '@components/ui/form'
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -14,17 +19,20 @@ import SelectDoctor from './SelectDoctor.vue';
 import DoctorService from './services/doctorsService';
 import { ref } from 'vue';
 import DoctorModel from './models/doctorModel';
+import { useForm } from 'vee-validate';
 
 const service = new DoctorService();
 
-const selectedDoctor = ref<DoctorModel>(null);
+const selectedDoctor: DoctorModel = null;
 
-function onSelectDoctor(doctor: DoctorModel){
-    selectedDoctor.value = doctor;
-}
+const form = useForm();
 
-function assignDoctor() {
-    service.assignDoctor(selectedDoctor.value);
+const onSubmit = form.handleSubmit((values) => {
+  console.log('Form submitted!', values)
+})
+
+function assignDoctor(data: any) {
+  service.assignDoctor(selectedDoctor);
 }
 
 </script>
@@ -40,24 +48,25 @@ function assignDoctor() {
       <DialogHeader>
         <DialogTitle>Assign doctor</DialogTitle>
         <DialogDescription>
-            Assign a doctor to this schedule.
+          Assign a doctor to this schedule.
         </DialogDescription>
       </DialogHeader>
-      <div class="grid gap-4 py-4">
-        <div class="grid grid-cols-4 items-center gap-4">
-          <Label for="name" class="text-right">
-            Doctor
-          </Label>
 
-          <SelectDoctor @select="onSelectDoctor"/>
+      <form @submit="onSubmit" class="grid gap-4 py-4">
+        <FormField v-slot="{ componentField }" name="doctor" class="grid grid-cols-4 items-center gap-4">
+          <FormItem>
+            
+            <FormControl>
+              <SelectDoctor v-bind="componentField" />
+            </FormControl>
 
-        </div>
-      </div>
-      <DialogFooter>
-        <Button type="submit" @click="assignDoctor">
+          </FormItem>
+        </FormField>
+
+        <Button type="submit">
           Save changes
         </Button>
-      </DialogFooter>
+      </form>
     </DialogContent>
   </Dialog>
 </template>
