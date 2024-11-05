@@ -5,10 +5,18 @@ from '@components/ui/dropdown-menu'
 import { MoreHorizontal } from 'lucide-vue-next'
 import AssignDoctorModal from './AssignDoctorModal.vue';
 import { Schedule } from './models/scheduleModel';
+import ConfirmModal from '@components/ConfirmModal.vue';
+import SchedulesStore from '@src/stores/scheduleList';
 
 const props = defineProps<{
     schedule: Schedule;
 }>();
+
+function deleteItem() {
+    const schedules = SchedulesStore.schedules;
+    const scheduleIndex = schedules.findIndex((schedule: Schedule) => schedule.id === props.schedule.id);
+    schedules.splice(scheduleIndex, 1);
+}
 
 </script>
 
@@ -30,9 +38,7 @@ const props = defineProps<{
                 Edit
             </DropdownMenuItem>
 
-            <DropdownMenuItem>
-                Delete
-            </DropdownMenuItem>
+            <ConfirmModal @confirm="deleteItem" />
 
             <DropdownMenuSeparator />
 
