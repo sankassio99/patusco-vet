@@ -25,7 +25,9 @@ const schema = z.object({
             required_error: 'Animal Age is required.',
         }),
 
-    date: z.coerce.date().optional(),
+    date: z.coerce.date({
+        required_error: 'Date is required.',
+    }),
 
     animalType: z
         .enum(['Dog', 'Cat', 'Bird', 'Rabbit', 'Fish', 'Other']),
