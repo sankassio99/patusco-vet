@@ -4,7 +4,7 @@ import ScheduleTable from './ScheduleTable.vue';
 import Filter from './Filter.vue';
 import ScheduleService from './services/schedulesService';
 import FilterModel from './models/filterModel';
-import SchedulesStore from '@src/stores/scheduleList';
+import ManagementStore from '@src/stores/scheduleList';
 
 const scheduleService = new ScheduleService();
 
@@ -18,7 +18,7 @@ onBeforeMount(() => {
 function fetchSchedules(filter: FilterModel) {
     scheduleService.getSchedules(filter).then((data) => {
         schedules.value = data;
-        SchedulesStore.schedules = data;
+        ManagementStore.schedules = data;
     });
 }
 
