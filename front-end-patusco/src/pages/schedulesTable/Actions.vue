@@ -36,7 +36,7 @@ const props = defineProps<{
 
             <DropdownMenuSeparator />
 
-            <AssignDoctorModal :doctor="schedule.assign" />
+            <AssignDoctorModal :schedule="schedule" />
 
         </DropdownMenuContent>
     </DropdownMenu>

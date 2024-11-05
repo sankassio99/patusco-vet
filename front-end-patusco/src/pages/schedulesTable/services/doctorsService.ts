@@ -2,7 +2,7 @@ import DoctorModel from "../models/doctorModel";
 
 export default class DoctorService {
 
-    assignDoctor(value: DoctorModel) {
+    assignDoctor(id: string, value: DoctorModel) {
         console.log('Assigning doctor');
         console.log(value);
     }

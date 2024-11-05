@@ -26,6 +26,10 @@ function fetchDoctors() {
     });
 }
 
+defineExpose({
+  doctorsList: doctorsList.value,
+});
+
 const emit = defineEmits(['select'])
 
 const props = defineProps<{
@@ -43,6 +47,7 @@ const props = defineProps<{
       <SelectGroup>
         <SelectItem v-for="doctor in doctorsList" 
             :value="doctor.id"
+            :textValue="doctor.id"
             :key="doctor.id">
             {{ doctor.name }}
         </SelectItem>
