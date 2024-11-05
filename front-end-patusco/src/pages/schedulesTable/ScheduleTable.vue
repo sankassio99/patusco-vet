@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@components/ui/table'
+import Actions from './Actions.vue';
 
 export interface Schedule {
   code: string;
@@ -53,7 +54,7 @@ const props = defineProps<{
         <TableCell>{{ schedule.date }}</TableCell>
         <TableCell>{{ schedule.shift }}</TableCell>
         <TableCell class="text-right">
-          <!-- Add any actions here -->
+          <Actions />
         </TableCell>
       </TableRow>
     </TableBody>
