@@ -1,25 +1,35 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import ScheduleTable, { Schedule } from './ScheduleTable.vue';
 import Filter from './Filter.vue';
+import ScheduleService from './services/schedulesService';
+import FilterModel from './models/filterModel';
 
-const schedules = ref([
-    <Schedule>{
-        code: '1',
-        requesterName: 'John Doe',
-        animalName: 'Dog',
-        type: 'Vaccination',
-        date: '2022-01-01',
-        shift: 'Morning',
-    },
-]);
+const scheduleService = new ScheduleService();
+
+const schedules = ref([]);
+const filter : FilterModel = null;
+
+onBeforeMount(() => {
+    fetchSchedules(filter);
+});
+
+function fetchSchedules(filter: FilterModel) {
+    scheduleService.getSchedules(filter).then((data) => {
+        schedules.value = data;
+    });
+}
+
+function onSubmit(filter: FilterModel) {
+    fetchSchedules(filter);
+}
 
 </script>
 
 <template>
     <div>
         <h1>Filter</h1>
-        <Filter></Filter>
+        <Filter @submit="onSubmit"></Filter>
     </div>
 
     <div>
