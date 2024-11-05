@@ -25,6 +25,10 @@ import { MoreHorizontal } from 'lucide-vue-next'
                 Edit
             </DropdownMenuItem>
 
+            <DropdownMenuItem>
+                Delete
+            </DropdownMenuItem>
+
             <DropdownMenuSeparator />
 
             <DropdownMenuItem>Assign Doctor</DropdownMenuItem>
