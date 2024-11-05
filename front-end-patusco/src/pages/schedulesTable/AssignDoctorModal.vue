@@ -9,31 +9,22 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@components/ui/dialog'
-import { Label } from '@components/ui/label'
 import SelectDoctor from './SelectDoctor.vue';
 import DoctorService from './services/doctorsService';
-import { ref } from 'vue';
-import DoctorModel from './models/doctorModel';
 import { useForm } from 'vee-validate';
 
 const service = new DoctorService();
 
-const selectedDoctor: DoctorModel = null;
-
 const form = useForm();
 
 const onSubmit = form.handleSubmit((values) => {
-  console.log('Form submitted!', values)
+  service.assignDoctor(values.doctor);
 })
 
-function assignDoctor(data: any) {
-  service.assignDoctor(selectedDoctor);
-}
 
 </script>
 
