@@ -8,6 +8,20 @@ import {
   TableHeader,
   TableRow,
 } from '@components/ui/table'
+
+export interface Schedule {
+  code: string;
+  requesterName: string;
+  animalName: string;
+  type: string;
+  date: string;
+  shift: string;
+}
+
+const props = defineProps<{
+  schedules: Schedule[];
+}>();
+
 </script>
 
 <template>
@@ -29,14 +43,17 @@ import {
       </TableRow>
     </TableHeader>
     <TableBody>
-      <TableRow>
+      <TableRow v-for="schedule in schedules" :key="schedule.code">
         <TableCell class="font-medium">
-          INV001
+          {{ schedule.code }}
         </TableCell>
-        <TableCell>Paid</TableCell>
-        <TableCell>Credit Card</TableCell>
+        <TableCell>{{ schedule.requesterName }}</TableCell>
+        <TableCell>{{ schedule.animalName }}</TableCell>
+        <TableCell>{{ schedule.type }}</TableCell>
+        <TableCell>{{ schedule.date }}</TableCell>
+        <TableCell>{{ schedule.shift }}</TableCell>
         <TableCell class="text-right">
-          $250.00
+          <!-- Add any actions here -->
         </TableCell>
       </TableRow>
     </TableBody>

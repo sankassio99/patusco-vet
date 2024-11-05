@@ -2,7 +2,7 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 
 import ScheduleForm from './pages/schedule/ScheduleForm.vue'
 import Home from './pages/home/Home.vue'
-import ScheduleTable from './pages/schedulesTable/ScheduleTable.vue'
+import ScheduleTable from './pages/schedulesTable/Index.vue'
 
 const routes = [
   { path: '/', component: Home },
