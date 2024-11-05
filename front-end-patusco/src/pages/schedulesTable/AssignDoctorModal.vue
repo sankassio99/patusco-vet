@@ -38,7 +38,7 @@ const onSubmit = form.handleSubmit((values) => {
   
   const doctor = new DoctorModel(doctorId, doctorName);
 
-  props.schedule.assign = doctor;
+  props.schedule.assigned = doctor;
 
   service.assignDoctor(props.schedule.id, values.doctor.id);
 })
@@ -67,7 +67,7 @@ const selectDoctorRef = ref(null);
           <FormItem>
             
             <FormControl>
-              <SelectDoctor ref="selectDoctorRef" :selected-doctor="schedule.assign" v-bind="componentField" />
+              <SelectDoctor ref="selectDoctorRef" :selected-doctor="schedule.assigned" v-bind="componentField" />
             </FormControl>
 
           </FormItem>

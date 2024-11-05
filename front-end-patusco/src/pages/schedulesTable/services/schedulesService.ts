@@ -14,7 +14,7 @@ export default class ScheduleService {
                 type: 'Vaccination',
                 date: '2022-01-01',
                 shift: 'Morning',
-                assign: new DoctorModel('', '')
+                assigned: new DoctorModel('', '')
             }
         ];
     }

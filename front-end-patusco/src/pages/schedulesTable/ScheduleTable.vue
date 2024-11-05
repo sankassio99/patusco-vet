@@ -46,7 +46,7 @@ const props = defineProps<{
         <TableCell>{{ schedule.type }}</TableCell>
         <TableCell>{{ schedule.date }}</TableCell>
         <TableCell>{{ schedule.shift }}</TableCell>
-        <TableCell>{{ schedule.assign?.name }}</TableCell>
+        <TableCell>{{ schedule.assigned?.name }}</TableCell>
         <TableCell class="text-right">
           <Actions :schedule="schedule"/>
         </TableCell>
