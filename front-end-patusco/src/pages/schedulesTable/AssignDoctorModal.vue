@@ -11,6 +11,7 @@ import {
 } from '@components/ui/dialog'
 import { Input } from '@components/ui/input'
 import { Label } from '@components/ui/label'
+import SelectDoctor from './SelectDoctor.vue';
 </script>
 
 <template>
@@ -32,7 +33,9 @@ import { Label } from '@components/ui/label'
           <Label for="name" class="text-right">
             Doctor
           </Label>
-          <Input id="name" value="Pedro Duarte" class="col-span-3" />
+
+          <SelectDoctor />
+
         </div>
       </div>
       <DialogFooter>
