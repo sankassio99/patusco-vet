@@ -9,9 +9,24 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@components/ui/dialog'
-import { Input } from '@components/ui/input'
 import { Label } from '@components/ui/label'
 import SelectDoctor from './SelectDoctor.vue';
+import DoctorService from './services/doctorsService';
+import { ref } from 'vue';
+import DoctorModel from './models/doctorModel';
+
+const service = new DoctorService();
+
+const selectedDoctor = ref<DoctorModel>(null);
+
+function onSelectDoctor(doctor: DoctorModel){
+    selectedDoctor.value = doctor;
+}
+
+function assignDoctor() {
+    service.assignDoctor(selectedDoctor.value);
+}
+
 </script>
 
 <template>
@@ -34,12 +49,12 @@ import SelectDoctor from './SelectDoctor.vue';
             Doctor
           </Label>
 
-          <SelectDoctor />
+          <SelectDoctor @select="onSelectDoctor"/>
 
         </div>
       </div>
       <DialogFooter>
-        <Button type="submit">
+        <Button type="submit" @click="assignDoctor">
           Save changes
         </Button>
       </DialogFooter>

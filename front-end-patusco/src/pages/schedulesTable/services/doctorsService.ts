@@ -1,6 +1,12 @@
 import DoctorModel from "../models/doctorModel";
 
 export default class DoctorService {
+
+    assignDoctor(value: DoctorModel) {
+        console.log('Assigning doctor');
+        console.log(value);
+    }
+
     async getDoctors(): Promise<DoctorModel[]> {
         console.log('Getting doctors');
 
