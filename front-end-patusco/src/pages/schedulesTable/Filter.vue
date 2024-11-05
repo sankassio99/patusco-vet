@@ -6,12 +6,12 @@ import {
     SheetClose,
     SheetContent,
     SheetDescription,
-    SheetFooter,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from '@components/ui/sheet'
 import * as z from 'zod'
+import FilterModel from './models/filterModel';
 
 const schema = z.object({
     date: z.coerce.date(),
@@ -21,13 +21,21 @@ const schema = z.object({
 
 })
 
+const emit = defineEmits(['submit'])
+
+function submit(data: any) {
+    var model = new FilterModel(data.date, data.animalType)
+
+    emit('submit', model)
+}
+
 </script>
 
 <template>
     <Sheet>
         <SheetTrigger as-child>
             <Button variant="outline">
-                Open
+                Filter
             </Button>
         </SheetTrigger>
         <SheetContent>
@@ -40,11 +48,17 @@ const schema = z.object({
 
             <AutoForm class="w-2/3 space-y-6" :schema="schema" :field-config="{
 
-            }" @submit="null">
+            }" @submit="submit">
 
                 <SheetClose as-child>
                     <Button type="submit">
-                        Filter
+                        Apply
+                    </Button>
+                </SheetClose>
+
+                <SheetClose as-child>
+                    <Button variant="outline">
+                        Cancel
                     </Button>
                 </SheetClose>
                 
