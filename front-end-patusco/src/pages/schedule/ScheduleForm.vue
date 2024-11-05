@@ -56,7 +56,7 @@ const controller = new ScheduleFormController();
 
 <template>
     <div class="w-full flex flex-col justify-center items-center my-10">
-        <h1 class="text-4xl font-bold text-center mb-6">Schedule Form</h1>
+        <h1 class="text-4xl font-bold text-center mb-6">Make an appointment</h1>
 
         <AutoForm class="w-2/3 space-y-6" :schema="schema" :field-config="{
         

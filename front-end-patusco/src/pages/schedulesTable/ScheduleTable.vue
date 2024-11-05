@@ -15,6 +15,11 @@ const props = defineProps<{
   schedules: Schedule[];
 }>();
 
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat(navigator.language).format(date);
+}
+
 </script>
 
 <template>
@@ -44,7 +49,7 @@ const props = defineProps<{
         <TableCell>{{ schedule.requesterName }}</TableCell>
         <TableCell>{{ schedule.animalName }}</TableCell>
         <TableCell>{{ schedule.type }}</TableCell>
-        <TableCell>{{ schedule.date }}</TableCell>
+        <TableCell>{{ formatDate(schedule.date) }}</TableCell>
         <TableCell>{{ schedule.shift }}</TableCell>
         <TableCell>{{ schedule.assigned?.name }}</TableCell>
         <TableCell class="text-right">
