@@ -4,6 +4,10 @@ import FilterModel from "../models/filterModel";
 import { Schedule } from "../models/scheduleModel";
 
 export default class ScheduleService {
+    saveSchedule(id: string, values: Record<string, any>) {
+        console.log(values);
+    }
+
     async getSchedules(filter: FilterModel) : Promise<Schedule[]> {
         
         return [

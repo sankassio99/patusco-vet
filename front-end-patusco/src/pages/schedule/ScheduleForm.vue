@@ -2,12 +2,12 @@
 import { AutoForm } from '../../components/ui/auto-form'
 import { Button } from '../../components/ui/button'
 import * as z from 'zod'
-import ScheduleFormController from './ScheduleFormController';
 import { Schedule } from '../../models/scheduleModel';
 import {
     CalendarDate,
 } from '@internationalized/date'
 import { AnimalType } from '../../models/animalType';
+import ScheduleService from '@src/services/schedulesService';
 
 const props = defineProps<{
     schedule: Schedule;
@@ -23,6 +23,15 @@ function getDate(): CalendarDate {
     const day = date.getDate();
 
     return new CalendarDate(year, month, day)
+}
+
+const service = new ScheduleService();
+
+async function onSubmit(values: Record<string, any>) {
+    const id = props.schedule?.id;
+    console.log(values);
+
+    await service.saveSchedule(id, values);
 }
 
 const schema = z.object({
@@ -68,11 +77,6 @@ const schema = z.object({
         .enum(['Morning', 'Afternoon'])
         .default(props?.schedule?.shift ?? 'Morning'),
 })
-
-function onSubmit(values: Record<string, any>) {
-    const id = props.schedule?.id;
-    console.log(values);
-}
 
 </script>
 
