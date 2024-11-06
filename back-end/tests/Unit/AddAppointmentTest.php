@@ -25,7 +25,10 @@ class AddAppointmentTest extends TestCase
         $appoitmentRepository->expects($this->once())
             ->method('add')
             ->with($this->callback(function($arg) use ($appoitment) {
-                return $arg->clientName === $appoitment->clientName;
+                return $arg->id === $appoitment->id &&
+                    $arg->date === $appoitment->date &&
+                    $arg->time === $appoitment->time &&
+                    $arg->clientName === $appoitment->clientName;
             }));
         
         
