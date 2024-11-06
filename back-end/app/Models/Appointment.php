@@ -3,10 +3,10 @@
 namespace App\Models;
 
 class Appointment {
-    protected $id;
-    protected $date;
-    protected $time;
-    protected $clientName;
+    public $id;
+    public $date;
+    public $time;
+    public $clientName;
 
     public function __construct($id, $date, $time, $clientName) {
         $this->id = $id;

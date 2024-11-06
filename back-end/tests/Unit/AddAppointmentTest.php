@@ -21,12 +21,15 @@ class AddAppointmentTest extends TestCase
 
         $appoitment = new Appointment(1, '2021-10-10', '10:00', 'John Doe');
 
-        // Act
-        $addAppointment->add($appoitment);
-
         // Assert
         $appoitmentRepository->expects($this->once())
             ->method('add')
-            ->with($appoitment);
+            ->with($this->callback(function($arg) use ($appoitment) {
+                return $arg->clientName === $appoitment->clientName;
+            }));
+        
+        
+        // Act
+        $addAppointment->add($appoitment);
     }
 }
