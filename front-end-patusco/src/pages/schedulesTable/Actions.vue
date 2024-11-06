@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 from '@components/ui/dropdown-menu'
 import { MoreHorizontal } from 'lucide-vue-next'
 import AssignDoctorModal from './AssignDoctorModal.vue';
-import { Schedule } from './models/scheduleModel';
+import { Schedule } from '../../models/scheduleModel';
 import ConfirmModal from '@components/ConfirmModal.vue';
 import ManagementStore, { UserType } from '@src/stores/scheduleList';
 import EditScheduleModal from './EditScheduleModal.vue';

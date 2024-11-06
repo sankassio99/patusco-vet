@@ -1,4 +1,4 @@
-import { Schedule } from '@src/pages/schedulesTable/models/scheduleModel';
+import { Schedule } from '@src/models/scheduleModel';
 import { reactive } from 'vue'
 
 export enum UserType {
@@ -7,7 +7,7 @@ export enum UserType {
     DOCTOR = "doctor"
 }
 
-interface ManagementStore {
+export interface ManagementStore {
     schedules: Schedule[],
     currentUserType: UserType
 }

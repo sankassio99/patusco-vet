@@ -2,8 +2,8 @@
 import { onBeforeMount, provide, ref } from 'vue';
 import ScheduleTable from './ScheduleTable.vue';
 import Filter from './Filter.vue';
-import ScheduleService from './services/schedulesService';
-import FilterModel from './models/filterModel';
+import ScheduleService from '../../services/schedulesService';
+import FilterModel from '../../models/filterModel';
 import ManagementStore from '@src/stores/scheduleList';
 
 const scheduleService = new ScheduleService();

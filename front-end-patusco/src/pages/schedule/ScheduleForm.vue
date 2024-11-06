@@ -3,11 +3,11 @@ import { AutoForm } from '../../components/ui/auto-form'
 import { Button } from '../../components/ui/button'
 import * as z from 'zod'
 import ScheduleFormController from './ScheduleFormController';
-import { Schedule } from '../schedulesTable/models/scheduleModel';
+import { Schedule } from '../../models/scheduleModel';
 import {
     CalendarDate,
 } from '@internationalized/date'
-import { AnimalType } from '../schedulesTable/models/animalType';
+import { AnimalType } from '../../models/animalType';
 
 const props = defineProps<{
     schedule: Schedule;

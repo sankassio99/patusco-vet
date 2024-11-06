@@ -9,7 +9,7 @@ import {
   TableRow,
 } from '@components/ui/table'
 import Actions from './Actions.vue';
-import { Schedule } from './models/scheduleModel';
+import { Schedule } from '../../models/scheduleModel';
 
 const props = defineProps<{
   schedules: Schedule[];

@@ -11,7 +11,7 @@ import {
 } from '@components/ui/dialog'
 import { Button } from '@components/ui/button'
 import ScheduleForm from '../schedule/ScheduleForm.vue';
-import { Schedule } from './models/scheduleModel';
+import { Schedule } from '../../models/scheduleModel';
 
 const props = defineProps<{
     schedule: Schedule;

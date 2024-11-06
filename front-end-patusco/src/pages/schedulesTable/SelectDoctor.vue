@@ -9,8 +9,8 @@ import {
   SelectValue,
 } from '@components/ui/select';
 import { onBeforeMount, reactive, ref } from 'vue';
-import DoctorModel from './models/doctorModel';
-import DoctorService from './services/doctorsService';
+import DoctorModel from '../../models/doctorModel';
+import DoctorService from '../../services/doctorsService';
 
 const doctorsList = ref([]);
 

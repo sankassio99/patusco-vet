@@ -11,7 +11,7 @@ import {
     SheetTrigger,
 } from '@components/ui/sheet'
 import * as z from 'zod'
-import FilterModel from './models/filterModel';
+import FilterModel from '../../models/filterModel';
 
 const schema = z.object({
     date: z.coerce.date(),

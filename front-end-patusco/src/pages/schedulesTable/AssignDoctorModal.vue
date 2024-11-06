@@ -15,10 +15,10 @@ import {
   DialogTrigger,
 } from '@components/ui/dialog'
 import SelectDoctor from './SelectDoctor.vue';
-import DoctorService from './services/doctorsService';
+import DoctorService from '../../services/doctorsService';
 import { useForm } from 'vee-validate';
-import DoctorModel from './models/doctorModel';
-import { Schedule } from './models/scheduleModel';
+import DoctorModel from '../../models/doctorModel';
+import { Schedule } from '../../models/scheduleModel';
 import { ref } from 'vue';
 
 const service = new DoctorService();
