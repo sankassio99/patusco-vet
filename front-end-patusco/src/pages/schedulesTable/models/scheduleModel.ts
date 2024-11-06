@@ -1,7 +1,7 @@
 import DoctorModel from "./doctorModel";
 
 export interface Schedule {
-    symptoms: string[];
+    symptoms: string;
     animalAge: number;
     id: string;
     assigned: DoctorModel;

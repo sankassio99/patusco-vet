@@ -7,19 +7,12 @@ import { Schedule } from '../schedulesTable/models/scheduleModel';
 import {
     CalendarDate,
 } from '@internationalized/date'
+import { AnimalType } from '../schedulesTable/models/animalType';
 
 const props = defineProps<{
     schedule: Schedule;
 }>();
 
-enum AnimalType {
-    Dog = 'Dog',
-    Cat = 'Cat',
-    Bird = 'Bird',
-    Rabbit = 'Rabbit',
-    Fish = 'Fish',
-    Other = 'Other'
-}
 
 function getDate(): CalendarDate {
     const date = props?.schedule?.date ? new Date(props?.schedule?.date) : new Date();
@@ -65,15 +58,14 @@ const schema = z.object({
         .default(props?.schedule?.type ?? AnimalType.Other),
 
     symptoms: z
-        .array(
-        // Define the fields for each item
-            z.object({
-                name: z.string(),
-            })
-        ),
+        .string({
+            required_error: 'The symptoms is required.',
+        })
+        .default(props?.schedule?.symptoms ?? ''),
 
     shift: z
-        .enum(['Morning', 'Afternoon']),
+        .enum(['Morning', 'Afternoon'])
+        .default(props?.schedule?.shift ?? 'Morning'),
 })
 
 const controller = new ScheduleFormController();
