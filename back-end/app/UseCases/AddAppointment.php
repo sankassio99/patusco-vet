@@ -13,10 +13,6 @@ class AddAppointment {
     }
     
     public function add(Appointment $appointment){
-        $clientName = $appointment->clientName;
-
-        echo "Client Name: " . $clientName;
-
         $this->appointmentRepository->add($appointment);
     }
 }

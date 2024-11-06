@@ -2,16 +2,26 @@
 
 namespace App\Models;
 
-class Appointment {
-    public $id;
-    public $date;
-    public $time;
-    public $clientName;
+use App\Enums\AnimalType;
+use DateTime;
 
-    public function __construct($id, $date, $time, $clientName) {
+class Appointment {
+    public string $id;
+    public $clientName;
+    public string $symptoms;
+    public int $animalAge;
+    public DoctorModel $assigned;
+    public string $code;
+    public string $requesterName;
+    public string $requesterEmail;
+    public string $animalName;
+    public AnimalType $type;
+    public DateTime $date;
+    public string $shift;
+
+    public function __construct(string $id, DateTime $date, string $clientName) {
         $this->id = $id;
         $this->date = $date;
-        $this->time = $time;
         $this->clientName = $clientName;
     }
 }
