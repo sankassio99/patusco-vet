@@ -11,6 +11,7 @@ import { AnimalType } from '../schedulesTable/models/animalType';
 
 const props = defineProps<{
     schedule: Schedule;
+    isUpdate: boolean;
 }>();
 
 
@@ -68,13 +69,16 @@ const schema = z.object({
         .default(props?.schedule?.shift ?? 'Morning'),
 })
 
-const controller = new ScheduleFormController();
+function onSubmit(values: Record<string, any>) {
+    const id = props.schedule?.id;
+    console.log(values);
+}
 
 </script>
 
 <template>
     <div class="w-full flex flex-col justify-center items-center my-10">
-        <h1 class="text-4xl font-bold text-center mb-6">Make an appointment</h1>
+        <h1 v-if="!props.isUpdate" class="text-4xl font-bold text-center mb-6">Make an appointment</h1>
 
         <AutoForm class="w-2/3 space-y-6" :schema="schema" :field-config="{
             animalType: {
@@ -85,9 +89,9 @@ const controller = new ScheduleFormController();
                 component: 'radio',
             },
 
-        }" @submit="controller.onSubmit">
+        }" @submit="onSubmit">
             <Button type="submit">
-                Submit
+               {{ props.isUpdate ? 'Update' : 'Submit' }}
             </Button>
         </AutoForm>
     </div>

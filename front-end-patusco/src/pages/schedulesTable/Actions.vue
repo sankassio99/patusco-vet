@@ -7,6 +7,7 @@ import AssignDoctorModal from './AssignDoctorModal.vue';
 import { Schedule } from './models/scheduleModel';
 import ConfirmModal from '@components/ConfirmModal.vue';
 import ManagementStore, { UserType } from '@src/stores/scheduleList';
+import EditScheduleModal from './EditScheduleModal.vue';
 
 const props = defineProps<{
     schedule: Schedule;
@@ -33,12 +34,10 @@ const currentUserType = ManagementStore.currentUserType;
 
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" class="flex flex-col items-start">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
 
-            <DropdownMenuItem>
-                Edit
-            </DropdownMenuItem>
+            <EditScheduleModal :schedule="props.schedule" />
 
             <ConfirmModal v-if="currentUserType == UserType.EMPLOYEE" @confirm="deleteItem" />
 

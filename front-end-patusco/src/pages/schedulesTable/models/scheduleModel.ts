@@ -1,3 +1,4 @@
+import { AnimalType } from "./animalType";
 import DoctorModel from "./doctorModel";
 
 export interface Schedule {
@@ -9,7 +10,7 @@ export interface Schedule {
     requesterName: string;
     requesterEmail: string;
     animalName: string;
-    type: string;
+    type: AnimalType;
     date: string;
     shift: string;
 }

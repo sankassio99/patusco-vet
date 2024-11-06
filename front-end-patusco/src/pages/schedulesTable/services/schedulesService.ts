@@ -1,3 +1,4 @@
+import { AnimalType } from "../models/animalType";
 import DoctorModel from "../models/doctorModel";
 import FilterModel from "../models/filterModel";
 import { Schedule } from "../models/scheduleModel";
@@ -9,17 +10,19 @@ export default class ScheduleService {
             <Schedule>{
                 code: '1',
                 requesterName: 'John Doe',
-                animalName: 'Dog',
-                type: 'Vaccination',
+                animalName: 'Bob',
+                type: AnimalType.Dog,
+                requesterEmail: 'John@email.com',
                 date: '2022-01-01',
                 shift: 'Morning',
-                assigned: new DoctorModel('', '')
+                assigned: new DoctorModel('', ''),
+                symptoms: 'Coughing, sneezing, fever',
             },
             <Schedule>{
                 code: '2',
                 requesterName: 'Jane Doe',
-                animalName: 'Cat',
-                type: 'Consultation',
+                animalName: 'Belinha',
+                type: AnimalType.Cat,
                 date: '2022-01-01',
                 shift: 'Afternoon',
                 assigned: new DoctorModel('', '')
