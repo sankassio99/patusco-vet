@@ -6,7 +6,7 @@ import { MoreHorizontal } from 'lucide-vue-next'
 import AssignDoctorModal from './AssignDoctorModal.vue';
 import { Schedule } from './models/scheduleModel';
 import ConfirmModal from '@components/ConfirmModal.vue';
-import ManagementStore from '@src/stores/scheduleList';
+import ManagementStore, { UserType } from '@src/stores/scheduleList';
 
 const props = defineProps<{
     schedule: Schedule;
@@ -17,6 +17,8 @@ function deleteItem() {
     const scheduleIndex = schedules.findIndex((schedule: Schedule) => schedule.id === props.schedule.id);
     schedules.splice(scheduleIndex, 1);
 }
+
+const currentUserType = ManagementStore.currentUserType;
 
 </script>
 
@@ -38,11 +40,11 @@ function deleteItem() {
                 Edit
             </DropdownMenuItem>
 
-            <ConfirmModal @confirm="deleteItem" />
+            <ConfirmModal v-if="currentUserType == UserType.EMPLOYEE" @confirm="deleteItem" />
 
             <DropdownMenuSeparator />
 
-            <AssignDoctorModal :schedule="schedule" />
+            <AssignDoctorModal v-if="currentUserType == UserType.EMPLOYEE" :schedule="schedule" />
 
         </DropdownMenuContent>
     </DropdownMenu>

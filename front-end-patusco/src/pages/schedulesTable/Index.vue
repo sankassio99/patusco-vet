@@ -22,7 +22,11 @@ function fetchSchedules(filter: FilterModel) {
     });
 }
 
-function onSubmit(filter: FilterModel) {
+const currentUserType = ManagementStore.currentUserType;
+
+function onApplyFilter(filter: FilterModel) {
+    filter.currentUserType = currentUserType;   
+
     fetchSchedules(filter);
 }
 
@@ -33,7 +37,7 @@ function onSubmit(filter: FilterModel) {
         <h1 class="text-4xl font-bold text-center mb-6">Management</h1>
     
         <div>
-            <Filter @submit="onSubmit"></Filter>
+            <Filter @submit="onApplyFilter"></Filter>
         </div>
 
         <div>
