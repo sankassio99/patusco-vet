@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model {
 
     protected $fillable = [
-        'id',
         'clientName',
         'symptoms',
         'animalAge',
@@ -20,7 +19,7 @@ class Appointment extends Model {
         'shift'
     ];
 
-    protected $table = 'schedule' ;
+    protected $table = 'appointment' ;
 
     public function doctor(){
         return $this->hasOne(Doctor::class);

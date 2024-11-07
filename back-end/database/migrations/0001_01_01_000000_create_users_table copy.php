@@ -21,6 +21,22 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('appointment', function (Blueprint $table) {
+            $table->id();
+            $table->string('clientName');
+            $table->string('symptoms');
+            $table->integer('animalAge');
+            $table->string('assigned');
+            $table->string('code');
+            $table->string('requesterName');
+            $table->string('requesterEmail');
+            $table->string('animalName');
+            $table->enum('type', ['Dog', 'Cat', 'Bird', 'Other']);
+            $table->dateTime('date');
+            $table->string('shift');
+            $table->timestamps();
+        });
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

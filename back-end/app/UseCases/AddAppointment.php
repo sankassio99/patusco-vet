@@ -14,14 +14,14 @@ class AddAppointment {
     
     public function add(AddAppointmentRequest $request){
         $this->appointment->create([
-            'client_name' => $request->clientName,
+            'clientName' => $request->clientName,
             'symptoms' => $request->symptoms,
-            'animal_age' => $request->animalAge,
+            'animalAge' => $request->animalAge,
             'assigned' => $request->assigned,
             'code' => $request->code,
-            'requester_name' => $request->requesterName,
-            'requester_email' => $request->requesterEmail,
-            'animal_name' => $request->animalName,
+            'requesterName' => $request->requesterName,
+            'requesterEmail' => $request->requesterEmail,
+            'animalName' => $request->animalName,
             'type' => $request->type,
             'date' => $request->date,
             'shift' => $request->shift,

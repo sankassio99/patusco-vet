@@ -14,7 +14,6 @@ class AddScheduleTest extends TestCase
     public function test_store_an_appointment(): void
     {
         $response = $this->post('/api/appointment', [
-            'id' => 'some-id',
             'clientName' => 'John Doe',
             'symptoms' => 'Coughing',
             'animalAge' => 5,
@@ -29,6 +28,6 @@ class AddScheduleTest extends TestCase
         ]);
 
         $response->assertStatus(201);
-        $response->assertJson(['message' => 'success!']);
+        $response->assertJson(['message' => 'Appointment created successfully']);
     }
 }
