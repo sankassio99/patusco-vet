@@ -5,7 +5,7 @@ namespace Tests\Feature;
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class AddScheduleTest extends TestCase
+class AddAppointmentTest extends TestCase
 {
     /**
      * A basic test example.

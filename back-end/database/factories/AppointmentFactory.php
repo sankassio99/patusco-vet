@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class ScheduleFactory extends Factory
+class AppointmentFactory extends Factory
 {
 
     /**
