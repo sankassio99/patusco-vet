@@ -2,13 +2,12 @@
 
 namespace App\Repositories;
 
-use App\Models\Appointment;
+use App\Models\AddAppointmentRequest;
 
 class AppointmentRepository {
     public function __construct() {}
     
-    public function add(Appointment $appointment) {
+    public function add(AddAppointmentRequest $appointment) {
         // Add the appointment to the database
-        
     }
 }

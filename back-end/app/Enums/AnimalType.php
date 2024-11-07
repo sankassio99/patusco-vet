@@ -10,3 +10,5 @@ enum AnimalType: string {
     case Fish = 'Fish';
     case Other = 'Other';
 }
+
+?>

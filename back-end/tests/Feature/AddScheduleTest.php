@@ -5,7 +5,7 @@ namespace Tests\Feature;
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class AddScheduleTest extends TestCase
 {
     /**
      * A basic test example.
@@ -13,12 +13,12 @@ class ExampleTest extends TestCase
      */
     public function test_store_an_appointment(): void
     {
-        $response = $this->post('/appointment', [
+        $response = $this->post('/api/appointment', [
             'id' => 'some-id',
             'clientName' => 'John Doe',
             'symptoms' => 'Coughing',
             'animalAge' => 5,
-            'assigned' => 'Dr. Smith',
+            'assigned' => '11110000000',
             'code' => 'APPT123',
             'requesterName' => 'Jane Doe',
             'requesterEmail' => 'jane.doe@example.com',
